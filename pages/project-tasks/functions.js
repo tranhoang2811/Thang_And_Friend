@@ -39,6 +39,14 @@ function addDeleteAction(event) {
     event.target.parentElement.parentElement.remove()
 }
 
+function setTaskToLocal(task) {
+    let projectList = JSON.parse(localStorage.getItem('projectList'))
+
+    projectList.taskList.push(task)
+
+    localStorage.setItem('projectList', JSON.stringify(projectList))
+}
+
 function renderTask(task = 'ádfasdf') {
     const taskElement = document.createElement('li')
     const divElement = document.createElement('div')
