@@ -1,0 +1,32 @@
+const boss = {
+    role: 'boss',
+    username: 'boss@gmail.com',
+    password: 'Boss123@'
+}
+
+class Employee {
+    constructor(fullname, username, password) {
+        this.ID = // Hàm random
+        this.fullname = fullname
+        this.username = username
+        this.password = password
+    }
+}
+
+class Project {
+    constructor(name) {
+        this.ID = // Hàm random
+        this.name = name
+        this.adminIDs = []
+        this.userIDs = []
+        this.taskList = []
+    }
+}
+
+class Task {
+    constructor(name) {
+        this.name = name
+        this.adminIDs = []
+        this.userIDs = []
+    }
+}

@@ -1,0 +1,21 @@
+@startuml todo
+
+skinparam actorStyle awesome
+left to right direction
+actor User
+actor Admin
+package ManageProject {
+    usecase (Add Projects)
+    usecase (Edit Projects)
+    usecase (Delete Projects)
+    usecase (Manage Users)
+    usecase (Manage Task)
+}
+Admin -- (Add Projects)
+Admin -- (Edit Projects)
+Admin -- (Delete Projects)
+Admin -- (Manage Users)
+Admin -- (Manage Task)
+(Add Projects) -- User
+
+@enduml

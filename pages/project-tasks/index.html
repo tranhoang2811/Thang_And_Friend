@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../../assets/font/themify-icons/themify-icons.css">
+</head>
+<body>
+    <div class="container">
+        <div class="container__heading">
+            <h1>Todo list</h1>
+        </div>
+        
+        <div class="add-item-container">
+            <input type="text" name="new-todo" class="item-input" placeholder="What do you need to do today?">
+            <button type="button" class="add-item-button">ADD</button>
+        </div>
+
+        <div class="items-container">
+            <ul class="items-list">
+                <li class="item">
+                    <div>
+                        <input type="checkbox" name="item-checkbox" class="item-checkbox" checked="true">
+                        <p class="item-content">something</p>
+                        <button class="edit-item-button ti-pencil"></button>
+                        <button class="delete-item-button">&times</button>
+                        <button class="assign-task-button ti-plus">
+                            <input type="text" class="id-input" placeholder="Enter user ID">
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="action-bar">
+        <input type="text" class="id-input" placeholder="Enter user ID">
+        <button class="promote">Promote</button>
+        <button class="demote">Promote</button>
+        <button class="add-to-project">Add user to project</button>
+        <button class="delete-from-project">Delete user from project</button>
+    </div>
+    <script src="./elements.js"></script>
+    <script src="./functions.js"></script>
+</body>
+</html>
