@@ -22,6 +22,16 @@ function demote(user) {
 
 }
 
+function editProjectName(newName, projectID) {
+    let projectList = localStorage.getItem('projectList') ? JSON.parse(localStorage.getItem('projectList')) : []
+
+    for (let project of projectList)
+        if (projectID === project.ID)
+            project.name = newName
+
+    localStorage.getItem('projectList', projectList)
+}
+
 function addProject(name) {
     let projectList = localStorage.getItem('projectList') ? JSON.parse(localStorage.getItem('projectList')) : []
 
