@@ -1,13 +1,18 @@
+if (localStorage.getItem('loggedinAccount') === null && sessionStorage.getItem('loggedinAccount') === null) {
+    alert('No account is logged in')
+    window.location.assign('../login/index.html')
+}
+
 let projectList = localStorage.getItem('projectList')
 projectList = projectList ? JSON.parse(projectList) : []
-renderAllValidProject(projectList)
+renderAllProject(projectList)
 
 function accessToProject(event) {
     const currentAccessProject = event.target.attributes.data
     sessionStorage.setItem('currentAccessProject', JSON.stringify(currentAccessProject))
     window.location.assign('../project-tasks/index.html')
 }
-    
+
 function setProjectToLocal(project) {
     let projectList = localStorage.getItem('projectList')
     projectList = projectList ? JSON.parse(projectList) : []
@@ -27,7 +32,7 @@ function renderProject(project) {
     return projectItemElement
 }
 
-function renderAllValidProject(projectList) {
+function renderAllProject(projectList) {
     projectList.forEach(project => {
         projectContainerElement.appendChild(renderProject(project))
     })
