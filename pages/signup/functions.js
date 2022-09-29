@@ -92,3 +92,4 @@ fullnameInput.addEventListener('focus', removeError)
 emailInput.addEventListener('focus', removeError)
 passwordInput.addEventListener('focus', removeError)
 // a
+// a
