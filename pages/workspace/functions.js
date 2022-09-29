@@ -59,3 +59,48 @@ function logout() {
 
 createProjectButtonElement.addEventListener('click', createNewProject)
 logoutButtonElement.addEventListener('click', logout)
+
+function addUserToProject(userID) {
+    let employees = (localStorage.getItem("employeeList") ? JSON.parse(localStorage.getItem("employeeList")) : null)
+    
+    if (!employees) {
+        return "No employee"
+    }
+    
+    let projectList =  JSON.parse(localStorage.getItem("projectList"))
+    let currentAccessProject =  JSON.parse(sessionStorage.getItem("currentAccessProject"))
+
+    let checkUserInProject = currentAccessProject.includes(userID)
+
+    if (!checkUserInProject) {
+        currentAccessProject.userIDs.push(userIDs)
+    }
+
+    projectList.userIDs = currentAccessProject.userIDs
+
+    localStorage.setItem("projectList", JSON.stringify(projectList))
+    sessionStorage.setItem("projectList", JSON.stringify(currentAccessProject))
+}
+
+function deleteUserFromProject(userID) {
+    let employees = (localStorage.getItem("employeeList") ? JSON.parse(localStorage.getItem("employeeList")) : null)
+    
+    if (!employees) {
+        return "No employee"
+    }
+    
+    let projectList =  JSON.parse(localStorage.getItem("projectList"))
+    let accessProject =  JSON.parse(sessionStorage.getItem("currentAccessProject"))
+
+    let currentUserInProject = accessProject.indexOf(userID)
+
+    let currentAccessProject = []
+    if (checkUserInProject != -1) {
+        currentAccessProject = accessProject.slice(0, currentUserInProject).concat(accessProject.slice(currentUserInProject+1))
+    }
+
+    projectList.userIDs = currentAccessProject.userIDs
+
+    localStorage.setItem("projectList", JSON.stringify(projectList))
+    sessionStorage.setItem("projectList", JSON.stringify(currentAccessProject))
+}
