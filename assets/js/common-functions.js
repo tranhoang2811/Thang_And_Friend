@@ -1,9 +1,29 @@
 function getUserFromLocal(username) {
+    let user = localStorage.getItem('userKey');
+    let data = JSON.parse(user);
+
+    if (user === null) {
+        return []
+    } else if (fullname == data.fullname && email == data.email && password == data.password) {
+        return true
+    } else {
+        return false
+    }
 
 }
 
-function setUserToLocal(user) {
 
+function setUserToLocal(user) {
+    let employeeList = localStorage.getItem('employeeList')
+    
+    if (employeeList === null) {
+        employeeList = [];
+    } else {
+        employeeList = JSON.parse(employeeList);
+    }
+
+    employeeList.push(user)
+    localStorage.setItem('employeeList', JSON.stringify(employeeList))
 }
 
 function isProjectAdmin(user) {

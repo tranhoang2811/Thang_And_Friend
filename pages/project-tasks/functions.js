@@ -89,3 +89,20 @@ addTodoButton.addEventListener('click', function () {
     //     addItemAction(todoListItems[i])
     // }
 })
+
+function addUserToTask(userID) {
+    let user = localStorage.getItem(employeeList);
+    let data = JSON.parse(user);
+    let jsonTaskList =  JSON.parse(localStorage.getItem("taskList"));
+    let isFounded = data.includes(userID);
+
+
+    if (user === null) {
+        return []
+    } else if (isFounded) {
+        jsonTaskList.push(userID)
+    }
+
+
+    localStorage.setItem("taskList", JSON.stringify(jsonTaskList))
+}
