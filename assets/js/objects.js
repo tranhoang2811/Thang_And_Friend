@@ -15,7 +15,7 @@ class Employee {
 
 class Project {
     constructor(name) {
-        this.ID = // Hàm random
+        this.ID = randomProjectID()
         this.name = name
         this.adminIDs = []
         this.userIDs = []
