@@ -66,9 +66,31 @@ function randomProjectID() {
 function hadProjectID(random) {
     let projectList = localStorage.getItem('projectList') ? JSON.parse(localStorage.getItem('projectList')) : []
 
-    for (let projectID of projectList) {
-        if (projectID === random)
+    for (let project of projectList) {
+        if (project.ID === random)
             return true
     }
+
+    return false
+}
+
+function randomUserID() {
+    let random = Math.floor(Math.random() * 10000)
+
+    while (hadUserID(random)) {
+        random = Math.floor(Math.random() * 10000)
+    }
+    
+    return random
+}
+
+function hadUserID(random) {
+    let employeeList = localStorage.getItem('employeeList') ? JSON.parse(localStorage.getItem('employeeList')) : []
+
+    for (let employee of employeeList) {
+        if (employee.ID = random)
+            return true
+    }
+
     return false
 }
