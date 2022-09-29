@@ -49,25 +49,25 @@ function validateAge(ageElement) {
 }
 
 // Set user information in storage
-function setInformation() {
-    const userInformation = {
-        fullname: fullnameInput.value,
-        email: emailInput.value,
-        password: passwordInput.value,
-        gender: genderInputContainer.querySelector('input[name="gender"]:checked').id,
-        age: ageInput.value
-    }
-    const users = localStorage.getItem('users') === null ? [] : JSON.parse(localStorage.getItem('users'))
+// function setInformation() {
+//     const userInformation = {
+//         fullname: fullnameInput.value,
+//         email: emailInput.value,
+//         password: passwordInput.value,
+//         gender: genderInputContainer.querySelector('input[name="gender"]:checked').id,
+//         age: ageInput.value
+//     }
+//     const users = localStorage.getItem('users') === null ? [] : JSON.parse(localStorage.getItem('users'))
     
-    users.push(userInformation)
-    localStorage.setItem('users', JSON.stringify(users))
-    sessionStorage.setItem('currentUserSignUp', JSON.stringify(userInformation))
+//     users.push(userInformation)
+//     localStorage.setItem('users', JSON.stringify(users))
+//     sessionStorage.setItem('currentUserSignUp', JSON.stringify(userInformation))
 
-    fullnameInput.value = ''
-    emailInput.value = ''
-    passwordInput.value = ''
-    ageInput.value = '0'
-}
+//     fullnameInput.value = ''
+//     emailInput.value = ''
+//     passwordInput.value = ''
+//     ageInput.value = '0'
+// }
 
 function removeError() {
     signupError.remove()
@@ -76,7 +76,13 @@ function removeError() {
 submitButton.addEventListener('click', function() {
     const signupCondition = validateFullname(fullnameInput) && validateEmail(emailInput) && validatePassword(passwordInput) && validateAge(ageInput)
     if (signupCondition) {
-        setInformation()
+        const fullname = fullnameInput.value
+        const email = emailInput.value
+        const password = passwordInput.value
+        const employee = new Employee(fullname, email, password)
+        fullnameInput.value = ''
+        emailInput.value = ''
+        passwordInput.value = ''
         window.location.assign('../login/index.html')
     }
 })
