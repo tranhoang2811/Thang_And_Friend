@@ -69,28 +69,40 @@ function validateAge(ageElement) {
 //     ageInput.value = '0'
 // }
 
+function setEmployeeToLocal(employee) {
+    let employeeList = localStorage.getItem('employeeList')
+    if (employeeList === null) {
+        employeeList = [];
+    } else {
+        employeeList = JSON.parse(employeeList);
+    }
+    employeeList.push(employee)
+    sessionStorage.setItem('currentEmployeeSignUp', JSON.stringify(employee))
+    localStorage.setItem('employeeList', JSON.stringify(employeeList))
+}
+
 function removeError() {
     signupError.remove()
 }
 
-submitButton.addEventListener('click', function() {
+function validateNewEmployeeAccount() {
     const signupCondition = validateFullname(fullnameInput) && validateEmail(emailInput) && validatePassword(passwordInput) && validateAge(ageInput)
     if (signupCondition) {
         const fullname = fullnameInput.value
         const email = emailInput.value
         const password = passwordInput.value
         const employee = new Employee(fullname, email, password)
+        setEmployeeToLocal(employee)
         fullnameInput.value = ''
         emailInput.value = ''
         passwordInput.value = ''
         window.location.assign('../login/index.html')
     }
-})
+}
+
+submitButton.addEventListener('click', validateNewEmployeeAccount)
 
 ageInput.addEventListener('focus', removeError)
 fullnameInput.addEventListener('focus', removeError)
 emailInput.addEventListener('focus', removeError)
 passwordInput.addEventListener('focus', removeError)
-// a
-// a
-// a

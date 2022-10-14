@@ -76,7 +76,7 @@ function deleteProject(inputID) {
 function randomProjectID() {
     let random = Math.floor(Math.random() * 1000)
     
-    while (hasProjectID(random)) {
+    while (hadProjectID(random)) {
         random = Math.floor(Math.random() * 1000)
     }
     
