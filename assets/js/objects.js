@@ -6,7 +6,7 @@ const boss = {
 
 class Employee {
     constructor(fullname, username, password) {
-        this.ID = // Hàm random
+        this.ID = randomUserID()
         this.fullname = fullname
         this.username = username
         this.password = password
